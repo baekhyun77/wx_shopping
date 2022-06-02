@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{$state.user_image}}" background-size="cover" bindtap="uploadImage"></image>
+    <text class="userinfo-nickname">{{$state.user_show}}</text>
+    <text class="userinfo-nickname">当前积分：{{$state.user_integral}}</text>
+    <!-- <image src="/images/qiandao.png"  ></image> -->
+    <text class="userinfo-nickname" bindtap="addIntegral">点击签到</text>
+  </view>
+  <view class="info_list">
+    <block wx:for="{{userListInfo}}">
+        <view class="weui_cell" data-url="{{item.url}}" bindtap="routerTo">
+            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" > {{item.text}} </view>
+            </view>
+            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
+            <view class="with_arrow"></view> 
+        </view>
+    </block> 
+        <view class="weui_cell" bindtap="loginout">
+            <view class="weui_cell_hd"><image src="../../images/tuichu.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" > 退出 </view>
+            </view>
+            <!-- <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view> -->
+            <view class="with_arrow"></view>
+        </view>
+
+  </view>
+</view>

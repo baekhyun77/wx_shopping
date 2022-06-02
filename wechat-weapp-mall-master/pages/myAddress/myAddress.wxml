@@ -1,0 +1,39 @@
+<import src="../template/shuju/shuju" />
+<import src="../template/loading/loading.wxml" />
+
+
+<!-- bindtouchstart="touchstart" bindtouchmove="touchmove"  catchtap='_setDefaultAddress'-->
+<view>
+  <view class='address-item'>
+    <view wx:if="{{addressList == ''}}">
+        <view class='imagesize'>
+          <image src="/images/kongsearch.png" class='in-image'   >
+          </image>
+        </view>
+      </view>
+    <view class="touch-item" data-index="{{index}}"  wx:for="{{addressList}}" wx:for-item="item">
+      <view class='item' data-pid='{{item.address_id}}'  data-address="{{item}}">
+        <view>
+          <view class='item-left'>
+            <icon class='icon iconfont icon-ico2'></icon>
+          </view>
+          <view class="item-center">
+            <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>{{item.address_consignee}} {{item.address_details}} {{item.address_phone}}</text>
+            <text style='font-size:28rpx;'>{{item.address_name}}</text>
+          </view>
+        </view>
+        <view class='iten-right' data-pid='{{item.address_id}}' data-index="{{index}}" catchtap='_deleteAddress'>
+          <text>删除</text>
+        </view>
+      </view>
+      <!-- <view class="del" catchtap="del" data-pid='{{item.address_id}}'>删除</view> -->
+    </view>
+  </view>
+</view>
+
+<!-- <template is="loading" wx:if="{{loading}}" /> -->
+
+<view style='height:100rpx;'></view>
+<view class='add_address' catchtap='_goAddAddress'>
+  <text>新增收货地址</text>
+</view>

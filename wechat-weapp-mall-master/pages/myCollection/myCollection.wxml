@@ -1,0 +1,36 @@
+<view  stytle=" overflow-x: hidden; overflow-y: auto;">
+<!-- <view class="serach">
+<view class="serach_view_show" bindtap="bindtap"> 搜索</view>
+</view> -->
+  <view class="message__list">
+    <view wx:if="{{collectionList == ''}}">
+      <view class='imagesize'>
+        <image src="/images/noguanzhu.png" class='in-image'   >
+        </image>
+      </view>
+    </view> 
+     <block wx:for="{{collectionList}}" wx:for-itme="item">
+        <navigator url="../shopDetails/shopDetails?shop_id={{item.collection_shopid}}">
+          <view class="item" >
+             <view class="item-left">
+                  <image src="{{item.collection_shopimage}}" class="image"/>
+             </view>
+             <view class="item-middle">
+                  <view>
+                       <text class="title">{{item.collection_shopname}}</text>
+                  </view>
+                  <view>
+                      <text class="message">{{item.createTime}}</text>
+                  </view>
+            </view>
+            <!-- <view class="item_right">
+                <view><text class="time">{{item.time}}</text></view>
+                <view class="mark" wx:if="{{item.count>0}}"><text class="text">{{item.count}}</text></view>
+            </view> -->
+         </view>
+         <view  class="line"></view>
+       </navigator>
+      
+    </block>
+  </view>
+</view>

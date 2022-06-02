@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/chat/chat",
+    "pages/index/index",
+    "pages/register/register",
+    "pages/classify/index",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/details/details",
+    "pages/details/addCart/addCart",
+    "pages/details/purchase/purchase",
+    "pages/details/selectAddress/selectAddress",
+     "pages/brand/index",
+    "pages/list/index",
+    "pages/setting/setting",
+    "pages/setting/updateUserInfo/index",
+    "pages/myAddress/myAddress",
+    "pages/addAddress/addAddress",
+    "pages/join/join",
+    "pages/allOrder/order",
+    "pages/shopDetails/shopDetails",
+    "pages/allOrder/addComment/addComment",
+    "pages/showComment/showComment",
+    "pages/myChat/myChat",
+    "pages/notice/notice",
+    "pages/myCollection/myCollection",
+    "pages/details/integral/integral"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "农产品销售商城",
+    "navigationBarBackgroundColor": "#292929",
+    "backgroundColor": "#F2f2f2",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#f9f027",
+    "borderStyle": "white",
+    "backgroundColor": "#292929",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/footer-icon-01.png",
+        "selectedIconPath": "images/footer-icon-01-active.png",
+        "text": "购物"
+      },
+      {
+        "pagePath": "pages/classify/index",
+        "iconPath": "./images/footer-icon-02.png",
+        "selectedIconPath": "./images/footer-icon-02-active.png",
+        "text": "分类"
+      },
+      { 
+        "pagePath": "pages/cart/cart",
+        "iconPath": "./images/footer-icon-03.png",
+        "selectedIconPath": "./images/footer-icon-03-active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "./images/footer-icon-04.png",
+        "selectedIconPath": "./images/footer-icon-04-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

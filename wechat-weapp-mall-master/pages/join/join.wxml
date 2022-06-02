@@ -1,0 +1,27 @@
+<view wx:if="{{join_status != ''}}">
+
+  <view wx:if="{{join_status == '1'}}">
+    <view class='imagesize'>
+        <image src="/images/yiruzhu.png" class='in-image'   >
+        </image>
+    </view>
+  </view>
+
+  <view wx:if="{{join_status == '0'}}">
+    <view class='imagesize'>
+        <image src="/images/daishenhe.png" class='in-image'   >
+        </image>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{join_status == ''}}">
+  <view class='update-user_info'>
+
+  <input placeholder="请填写申请理由" class="weui-input" auto-focus model:value='{{join_reason}}'/>
+  </view>
+
+  <view class='btn-recharge' style='background-color: #04be02;' catchtap='insertJoin'>
+  提交 
+  </view>
+</view>

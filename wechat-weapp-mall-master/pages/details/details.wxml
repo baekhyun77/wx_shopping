@@ -1,0 +1,73 @@
+<!--pages/goods/show.wxml-->
+<view class="section goods-show"style="height:780px">
+    <view class="goods-swiper">
+        <!-- <swiper class="slide" indicator-dots="true" autoplay="true" interval="3000" duration="1000"> -->
+            <block>
+                <!-- <swiper-item> -->
+                    <image class="slide" src="{{commodity_image}}" mode="widthFix" class="slide-image"/>
+                <!-- </swiper-item> -->
+            </block>
+        <!-- </swiper> -->
+    </view>
+    <!-- end-goods-swiper -->
+    <view class="goods-desp">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="title">{{commodity_name}}</view>
+                   <!--<view class="desp">{{commodity_describe}}</view>--> 
+                    <view class="meta">{{commodity_price}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells select">
+            <view class="weui-cell__bd on-sale" wx:if="{{commodity_group == '1'}}">
+                <text  class="weui-cell__subtitle">团购</text>
+                <text class="weui-cell__strong">{{commodity_discount}}折</text>
+                <text>最低团购数量 {{commodity_group_num}} 斤</text>
+            </view>
+            <navigator class="weui-cell weui-cell_access" hover-class="none" >
+                <view class="weui-cell__bd selected">
+                    <text class="weui-cell__subtitle">库存</text>
+                    <text>{{commodity_num}} 斤</text> 
+                </view>
+               
+            </navigator>
+            <navigator class="weui-cell weui-cell_access" hover-class="none" url="../shopDetails/shopDetails?shop_id={{commodity_shopid}}">
+                <view class="weui-cell__bd selected">
+                    <view class="weui-cell__subtitle">进店看看</view>
+                </view>
+                <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+            </navigator>
+           <!--  <navigator class="weui-cell weui-cell_access" hover-class="none" url="../showComment/showComment?commodity_id={{commodity_id}}">
+                <view class="weui-cell__bd selected">
+                    <view class="weui-cell__subtitle">看看评论</view>
+                </view>
+                <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+            </navigator>-->
+            <navigator class="weui-cell weui-cell_access" hover-class="none" url="../showComment/showComment?commodity_id={{commodity_id}}">
+                <view class="weui-cell__bd selected">
+                    <view class="weui-cell__subtitle">看看评论</view>
+                </view>
+                <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+            </navigator> 
+        </view>
+        <view class='details_box'>
+        
+                <view >
+                    {{commodity_describe}}
+                </view>
+         </view>
+</view>
+   <!-- </view>-->
+    <view class="user-operation">
+        <view class="cart" data-toUserId="{{commodity_userid}}" bindtap="goChat">
+            <!-- <view ></view> -->
+            <!-- <text class="badge" wx:if="{{goods_num>0}}">{{goods_num}}</text> -->
+            <image src="../../images/liaotian.svg" />
+        </view>
+        <view class="add-cart" bindtap="toAddCart" data-id="{{commodity_id}}">加入购物车</view>
+        <view class="btn-buy-now" bindtap="toAddPurchase" data-id="{{commodity_id}}">立即购买</view>
+        <view class="btn-buy-i" bindtap="toAddIntegral" data-id="{{commodity_id}}">积分购买</view>
+    </view>
+</view>

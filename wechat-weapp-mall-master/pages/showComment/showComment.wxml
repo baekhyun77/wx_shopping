@@ -1,0 +1,50 @@
+<!--pages/showComment/showComment.wxml-->
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh">
+  <view class="pro-con">
+    <block>
+      <view wx:if="{{commentList == ''}}">
+        <view class='imagesize'>
+          <image src="/images/kongpinglun.png" class='in-image'   >
+          </image>
+        </view>
+      </view> 
+      <view class="pro-box" wx:for="{{commentList}}" wx:for-item="item" wx:key="index">
+        <view class="head">
+          <image class="img" src="{{item.comment_userimage}}" mode="aspectFit"></image>
+          <view class="box">
+            <view class="shead clear">
+              <view class="names fl">{{item.comment_username}}
+                  <!-- <view>
+                  -> {{item.replyUserName}}
+                </view> -->
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="addr-info">
+          <view class="addr-text">
+            {{item.comment_content}}
+          </view>
+        </view>
+        <view class="info">
+          <view class="text">
+            <text decode="true">{{item.createTime}}</text>
+          </view>
+          <view class="text">
+            <button class="sharebtn" >{{item.comment_level}}</button>
+          </view>
+              <!-- <view class="status text fr">
+                <text class="delete" decode="true">{{comment_level}}</text>
+              </view> -->
+        </view>
+        <view class='star'>
+          <!--  -->
+          <view class='star-item' wx:for="{{starst}}" wx:for-item="c" wx:key="index1">
+            <image class='{{c.index < item.comment_stars?"on":""}}' src="../../images/star.gif"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+

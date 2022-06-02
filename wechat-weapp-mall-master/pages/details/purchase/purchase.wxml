@@ -1,0 +1,66 @@
+<!--pages/selectGoods/selectGoods.wxml-->
+<view class="section goods-select">
+    <block >
+        <view class="weui-cells preview">
+            <view class="weui-cell">
+                <view class="weui-cell__hd head">
+                    <image src="{{commodity_image}}" />
+                </view>
+                <view class="weui-cell__bd">
+                    <view class="title">{{commodity_name}}</view>
+                    <view class="meta">{{commodity_price}}</view>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd on-sale" wx:if="{{commodity_group == '1'}}">
+                <text  class="weui-cell__subtitle">团购</text>
+                <text class="weui-cell__strong">{{commodity_discount}}折</text>
+                <text>最低团购数量 {{commodity_group_num}} 件</text>
+            </view>
+            </view>
+        </view>
+        <view class="weui-cells">
+            <navigator class="weui-cell weui-cell_access" hover-class="none" url="../selectAddress/selectAddress">
+                <view class="weui-cell__bd selected">
+                    <view class="weui-cell__hd subtitle">收货地址</view>
+                    <text class="title" decode="{{true}}">{{order_addressconsignee}}&nbsp;&nbsp;{{order_addressphone}}&nbsp;&nbsp;{{order_addressdetails}}</text>
+                    <view class="desp">{{order_addressname}}</view>
+                    
+                </view>
+                <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+            </navigator>
+            <view class="weui-cell attr-number">
+                <view class="weui-cell__hd subtitle">购买数量 库存{{commodity_num}}</view>
+                <view class="weui-cell__bd">
+                    <view class="select-number">
+                        <view class="minus" bindtap="minusCount">
+                            <image src="../../../images/minus.png" />
+                        </view>
+                        <view class="number">{{order_num?order_num:1}}</view>
+                        <view class="add" bindtap="addCount">
+                            <image src="../../../images/add.png" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view  bindtap="submit" class="btn_pay">立即支付</view>
+    <!-- 密码输入框 -->
+    <view wx:if='{{showPayPwdInput}}'>
+        <view class='bg_layer'></view>
+        <view class='input_main'>
+            <view class='input_title'>
+                <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+                <text>输入支付密码</text>
+            </view>
+            <view class='input_row' catchtap='getFocus'>
+                <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                    <text wx:if='{{pwdVal.length>i}}'></text>
+                </view>
+            </view>
+            <view class='forget_pwd' bindtap='RestPwd'>忘记密码</view>
+            <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+        </view>
+    </view>
+</view>

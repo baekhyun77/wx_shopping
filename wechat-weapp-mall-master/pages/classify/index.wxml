@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="nav_left">
+    <block wx:for="{{typeList}}">
+      <view class="nav_left_items " bindtap="switchRightTab" data-index="{{index}}" data-name="{{item.t_name}}">{{item.t_name}}</view>
+    </block>
+  </view> 
+  <view class="nav_right">
+    <!-- <view wx:if="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}">
+      <block wx:for="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}">
+        <view class="nav_right_items">
+          <navigator url="../list/index?brand={{item.tree.id}}&typeid={{navRightItems[curIndex].id}}">
+            <view>
+              <block wx:if="{{item.tree.logo}}">
+                <image src="{{item.tree.logo}}"></image>
+              </block>
+              <block wx:else>
+                <image src="http://temp.im/50x30"></image>
+              </block>
+            </view>
+            <view wx:if="{{item.tree.desc}}">
+              <text>{{item.tree.desc}}</text>
+            </view>
+            <view wx:else>
+              <text>{{item.tree.desc2}}</text>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </view> -->
+    <!--index.wxml-->
+<view class="container">
+	<!-- 首页商品版块 -->
+	<view class="section block">
+
+			<view class="section goods-list">
+        <view wx:if="{{goodList == ''}}">
+          <view class='imagesize'>
+            <image src="/images/kongfenlei.png" class='in-image' >
+            </image>
+          </view>
+        </view> 
+				<block wx:for="{{goodList}}" wx:key="index" wx:for-item="product">
+					<view class="goods-item">
+						<image class="goods-img" src="{{product.commodity_image}}" data-pid="{{product.commodity_id}}" mode="aspectFill" bindtap="showDetail"/>
+						<text class="title">{{product.commodity_name}}</text>
+						
+						<text class="meta">{{product.commodity_price}}￥</text>
+						<text class="discount">销量：{{product.commodity_sales}}</text>
+					</view>
+				</block>
+			</view>
+		<!-- </block> -->
+	</view><!-- end-section block -->
+	<view class="section bottom-line">
+    <image src="/images/dibu.png" mode="bottom" ></image>
+	</view>
+</view>
+  </view>
+</view>

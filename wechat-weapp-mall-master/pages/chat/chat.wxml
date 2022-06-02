@@ -1,0 +1,54 @@
+<view class="chat" style="height: {{height}}px">
+    <scroll-view scroll-y='true' class="chat-content" style="height: {{chatHeight}}px">
+      <view  wx:for="{{msgList}}" wx:for-item="item" >
+  
+      <!-- 收到的消息 -->
+      <view wx:if="{{item.msg_userid != $state.user_id}}">
+        <!-- 聊天发送的时间 -->
+        <view class="chat-content-list-time">{{item.createTime}}</view>
+        <view class="chat-content-list " >
+          <!-- 消息接收人的头像 -->
+          <image class="chat-content-list-avatar "  src="{{item.msg_userimage}}"></image>
+          <view class="chat-content-list-content" data-index="1">
+              <view class="chat-content-list-msg"> 
+                <!-- 消息接收人发送的消息 -->
+                  <text selectable='true'>{{item.msg_text}}</text>
+              </view>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- 发送的消息 通过msg中的userid与登录的用户名id进行比较。-->
+      <view wx:if="{{item.msg_userid == $state.user_id}}"> 
+        <!-- 默认展示  语音 -->
+        <view class="chat-content-list-time">{{item.createTime}}</view>
+        <view class="chat-content-list right" >
+          <image class="chat-content-list-avatar "  src="{{item.msg_userimage}}"></image>
+          <view class="chat-content-list-content" data-index="2">
+              <view class="chat-content-list-msg"  >
+                  <text>{{item.msg_text}}</text> 
+              </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+ 
+    </scroll-view>
+    
+    <!-- 聊天框 -->
+    <view class="input-flex-column" catchtap="null">
+        <view class="input-text-voice-super">
+            <input 
+                   class="chat-input-style" style="margin-left:rpx;"
+                   maxlength="500" confirm-type="send" model:value="{{msg}}"  placeholder='想和TA说点什么呢？' cursor-spacing='20'/>
+            <view hover-class="press-style-opacity">
+                <image class="extra-btn-style" bindtap="sendMsg"
+                       src="../../image/chat/extra/close_chat.png"/>
+            </view>
+        </view>
+    </view>
+
+</view>
+

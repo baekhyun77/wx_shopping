@@ -1,0 +1,29 @@
+<!--pages/register/register.wxml-->
+<view class="form-here">
+    <!-- <view class="form-account"> -->
+        <image style="width: 80px; height: 80px; background-color: #eeeeee;" mode="scaleToFill" src="{{user_image}}" bindtap="uploadImage"></image>
+        <view class="hr" style="margin-top:5px;"></view>
+        <input class="form-password" placeholder="请输入昵称" model:value="{{user_show}}"/>
+        <view class="hr" style="margin-top:5px;"></view>
+        <input class="form-account" model:value="{{user_email}}" placeholder="请输入邮箱地址" />
+        <view class="hr" style="margin-top:5px;"></view>
+        <input class="form-account" model:value="{{user_name}}" placeholder="请输入用户名" />
+        <view class="hr" style="margin-top:5px;"></view>
+    <!-- </view> --> 
+    <!-- <view class="form-password"> -->   
+        <input password class="form-password" model:value="{{user_password}}" placeholder="请输入密码" />
+        <view class="hr" style="margin-top:5px;"></view>
+        <input password class="form-password" model:value="{{user_passwordTrue}}" placeholder="请确认密码" />
+        <view  class="hr" style="margin-top:5px;"></view>
+        <input type="number" class="form-password" model:value="{{user_phone}}" placeholder="请输入手机号"/>
+        <view class="hr" style="margin-top:5px;"></view>
+        <input type="number" class="form-password" model:value="{{user_payword}}" placeholder="请输入支付密码"/>
+        <view class="hr" style="margin-top:5px;"></view>
+        <input type="number" class="form-password" model:value="{{user_address}}" placeholder="请输入住址"/>
+        <view class="hr" style="margin-top:5px;"></view>
+    <!-- </view> -->
+</view>
+<view class="submit">
+    <button class="sub-button" bindtap="registerUser">免费注册</button>
+    <button class="sub-button" bindtap="toLogin">直接登录</button>
+</view>

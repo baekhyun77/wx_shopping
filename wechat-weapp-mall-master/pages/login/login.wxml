@@ -1,0 +1,21 @@
+<view class="content">
+    <view class = "logo">
+        <text mode="aspectFit" >商场登录</text>
+    </view>
+    <!-- 表单提交通过bindsubmit = "方法名" 提交按钮设置为 submit类型。来提交表单，里面的数据用name代表名称 -->
+    <form bindsubmit="formSubmit">
+        <view class="input-area">
+          <input id="user_phone" name="user_phone" maxlength='40' type="text" placeholder="电话" value=""/>
+          <input id="user_password" name="user_password" maxlength='20' type="password" placeholder="密码" value="" />
+        </view>
+        <view class="btn-area">
+            <button  disabled="{{disabled}}" style="background-color:{{loginBtnBgBgColor}}"   formType="submit"  loading="{{btnLoading}}"> {{loginBtnTxt}} </button>
+            <view class="txt-area">
+                <navigator redirect url="../register/register"><text class="register">注册账号</text></navigator> 
+            </view>
+        </view>
+    </form>
+ 
+    <!--<progress class="myprogress" percent="{{percent }}" color="{{color}}" active/>-->
+    
+</view>

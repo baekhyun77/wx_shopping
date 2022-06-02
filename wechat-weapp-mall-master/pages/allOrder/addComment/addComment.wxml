@@ -1,0 +1,18 @@
+<!--pages/star/star.wxml-->
+<view class="container">
+  <view>评分</view>
+  <view class='star'>
+    <view class='star-item' wx:for="{{starst}}" wx:key="unique">
+      <image class='{{index<=posit?"on":""}}' src="../../../images/star.gif" bindtap="evclickt" data-posit="{{index}}"></image>
+    </view>
+  </view>
+  <view>评分结果：{{starst[posit]}}</view>
+</view>
+<view class='update-user_info'>
+ 
+<input class="weui-input" placeholder="请写下您的建议" auto-focus model:value='{{content}}'/>
+</view>
+ 
+<view class='btn-recharge' style='background-color: #04be02;' catchtap='addComment'>
+提交
+</view>

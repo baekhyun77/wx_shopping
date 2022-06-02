@@ -1,0 +1,7 @@
+<view class='update-user_info'>
+
+  <input class="weui-input" auto-focus model:value='{{content}}'/>
+</view>
+<view class='btn-recharge' style='background-color: #04be02;' catchtap='updateUserInfo'>
+  提交
+</view>

@@ -1,0 +1,60 @@
+<!--pages/allOrder/order.wxml-->
+<import src="../template/shuju/shuju" />
+<import src="../template/loading/loading.wxml" />
+
+<view class='top-container'>
+  <view class='order-status-tab'>
+    <block wx:for="{{orderStatus}}" wx:key="{{item}}">
+      <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-status="{{item.status}}" bindtap="swichNav">{{item.title}}</view>
+    </block>
+  </view>
+</view>
+
+<view class='separator2'></view>
+<!--pages/cart/cart.wxml-->
+<view id='cart'>
+  <view class="content">
+    <view class="shop">
+      <view wx:if="{{orderList == ''}}">
+        <view class='imagesize'>
+          <image src="/images/kongshangpin.png" class='in-image'   >
+          </image>
+        </view>
+      </view> 
+
+        <view class="goods" wx:for="{{orderList}}" wx:for-item="item" data-index="{{index}}">
+
+          <view class="img-box">
+            <image class="img"src="{{item.order_commodityimage}}" data-id="{{item.order_commodityid}}" mode="widthFix" bindtap="toDetails">{{item.order_commodityname}}</image>
+          </view>
+          <view class="info">
+            <view class="title" data-id="{{item.order_commodityid}}" bindtap="toDetails">{{item.order_commodityname}}</view>
+
+            <view class="price_count">
+              <view class="price">￥{{item.order_pay}}</view>
+              <view class="desp">数量:{{item.order_num}}</view>
+              
+            </view>
+            <text class="user_name">{{item.order_addressconsignee}} {{item.order_addressphone}}</text>
+            <view class="user_address">{{item.order_addressname}}</view>
+            <view class="bottom">
+              <view class="self" wx:if="{{item.order_purchase == '1'}}">团购</view>
+              <!-- <view class="self" wx:if="{{item.order_purchase == '0'}}">直接购买</view>-->
+              <!-- <view class="follow">移入关注</view> -->
+              <!-- <view class="delete">购买</view> --> 
+              <view wx:if="{{item.order_status == '0'}}" data-id="{{item.order_id}}" class="delete" bindtap="delete">购物车中删除</view>
+              <view wx:if="{{item.order_status == '1'}}" data-id="{{item.order_id}}" class="delete">等待卖家发货</view>
+              <view wx:if="{{item.order_status == '1'}}" data-id="{{item.order_id}}" class="delete" bindtap="refund">退款</view>
+              <view wx:if="{{item.order_status == '2'}}" data-id="{{item.order_id}}" class="delete" bindtap="receivingGoods">收货</view>
+              <view wx:if="{{item.order_status == '2'}}" data-id="{{item.order_id}}" class="delete"  bindtap="refund">退款</view>
+              <view wx:if="{{item.order_status == '5'}}" data-id="{{item.order_id}}" class="delete">退款成功</view>
+              <view wx:if="{{item.order_status == '3'}}" data-id="{{item.order_id}}" data-commodityid="{{item.order_commodityid}}" class="delete" bindtap="toAddComment">评价</view>
+              <view wx:if="{{item.order_status == '4'}}" data-id="{{item.order_id}}" data-commodityid="{{item.order_commodityid}}" class="delete" bindtap="toLookComment">查看评价</view>
+            </view>
+          </view>
+        </view>
+    </view>
+  </view>
+
+
+</view>

@@ -1,0 +1,9 @@
+<view class='update-user_info'>
+
+  <input placeholder="请填写反馈" class="weui-input" auto-focus model:value='{{notice_message}}'/>
+  </view>
+
+  <view class='btn-recharge' style='background-color: #04be02;' catchtap='insertNotice'>
+  提交 
+  </view>
+  

@@ -1,0 +1,15 @@
+{
+  "name": "wechat-weapp-mall-master",
+  "version": "1.0.0",
+  "description": "wxShopping-applet",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run dec"
+  },
+  "author": "Clay",
+  "license": "ISC",
+  "dependencies": {
+    "miniprogram-sm-crypto": "^0.2.1",
+    "wxministore": "^1.3.1"
+  } 
+}

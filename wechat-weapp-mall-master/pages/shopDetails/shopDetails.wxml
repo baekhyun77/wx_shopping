@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view class="container">
+<view>
+  <image src="{{shop_image}}"></image>
+      <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" >掌柜： {{shop_username}} </view>
+            </view>
+            <view class="with_arrow"></view>
+        </view>
+        <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" >营业额： {{shop_turnover}} </view>
+            </view>
+            <view class="with_arrow"></view>
+        </view>
+        <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" >访问量： {{shop_visits}} </view>
+            </view>
+            <view class="with_arrow"></view>
+        </view>
+        <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" >店铺地址： {{shop_address}} </view>
+            </view>
+            <view class="with_arrow"></view>
+        </view>
+        <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" >联系电话： {{shop_phone}} </view>
+            </view>
+            <view class="with_arrow"></view>
+        </view>
+        <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p" >店铺简介： {{shop_describe}} </view>
+            </view>
+            <view class="with_arrow"></view>
+        </view>
+        <view wx:if="{{!alreadyCollection}}" class='btn-recharge' style='background-color: #04be02;' catchtap='addUserCollection'>
+        关注
+        </view>
+        <view wx:if="{{alreadyCollection}}" class='btn-recharge' style='background-color: #04be02;' catchtap='deleteCollection'>
+        取关
+        </view>
+</view>
+<!-- 首页商品版块 -->
+<view class="section block">
+<!-- <block wx:for="{{index_block}}" wx:key="{{item.id}}"> -->
+  <!-- <view class="section cover">
+    <image class="cover-img" src="{{item.img_url}}" data-cid="{{item.id}}" bindtap="showcDetail"/>
+  </view> -->
+  <view class="section goods-list">
+    <view wx:if="{{goodList == ''}}">
+        <view class='imagesize'>
+          <image src="/images/kongshangpin.png" class='in-image'   >
+          </image>
+        </view>
+    </view> 
+    <block wx:for="{{goodList}}" wx:key="index" wx:for-item="product">
+      <view class="goods-item">
+        <image class="goods-img" src="{{product.commodity_image}}" data-pid="{{product.commodity_id}}" mode="aspectFill" bindtap="showDetail"/>
+        <text class="title">{{product.commodity_name}}</text>
+        <text class="desp">{{product.commodity_describe}}</text>
+        <text class="meta">{{product.commodity_price}}￥</text>
+        <!--<text class="discount">销量：{{product.commodity_sales}}</text>-->
+      </view>
+    </block>
+  </view>
+<!-- </block> -->
+</view><!-- end-section block -->
+<view class="section bottom-line">
+<text>到底啦</text>
+</view>
+</view>

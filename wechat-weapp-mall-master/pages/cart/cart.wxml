@@ -1,0 +1,43 @@
+<!--pages/cart/cart.wxml-->
+<view id='cart'>
+  <view class="content">
+    <view class="shop">
+
+        <view wx:if="{{orderList == ''}}">
+          <view class='imagesize'>
+            <image src="/images/kongcart.png" class='in-image' >
+            </image>
+          </view>
+        </view> 
+
+        <view class="goods" wx:for="{{orderList}}" wx:for-item="item" data-index="{{index}}">
+          
+          <view class="img-box">
+            <image class="img"src="{{item.order_commodityimage}}" data-id="{{item.order_commodityid}}" mode="widthFix" bindtap="toDetails">{{item.order_commodityname}}</image>
+          </view>
+          <view class="info">
+            <view class="title" data-id="{{item.order_commodityid}}" bindtap="toDetails">{{item.order_commodityname}}</view>
+            
+ 
+            <view class="price_count">
+              <view class="price">￥{{item.order_pay}}</view>
+              <view class="desp">数量:{{item.order_num}}</view>
+              
+            </view>
+            <text class="user_name">{{item.order_addressconsignee}} {{item.order_addressphone}}</text>
+            <view class="user_address">{{item.order_addressname}}</view>
+            <view class="bottom">
+              <view class="self" wx:if="{{item.order_purchase == '1'}}">团购</view>
+              
+              <!-- <view class="follow">移入关注</view> -->
+              <view class="delete" data-id="{{item.order_id}}" bindtap="toPurchase">购买</view>
+              <view class="delete" data-id="{{item.order_id}}" bindtap="delete">删除</view>
+            </view>
+          </view>
+        </view>
+      
+    </view>
+  </view>
+
+
+</view>
